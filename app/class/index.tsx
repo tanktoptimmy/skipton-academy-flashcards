@@ -58,7 +58,6 @@ const Page = () => {
               </View>
             </View>
           )}
-          estimatedItemSize={120}
           contentContainerStyle={styles.listContent}
         />
       ) : null}

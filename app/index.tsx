@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Text, FlatList, Modal, Pressable } from 'react-native';
+import { StyleSheet, View, Text, FlatList, Modal, Pressable, StatusBar } from 'react-native';
 import { Stack } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
@@ -29,14 +29,18 @@ export const Home = () => {
 
   const currentColors =
     subjectColors[chosenSubject as keyof typeof subjectColors] || subjectColors.science;
-
   return (
-    <SafeAreaView style={[styles.container, { backgroundColor: '#F2F5FC' }]} edges={['top']}>
-      <Stack.Screen
-        options={{
-          headerShown: false,
-        }}
-      />
+    <>
+      <View style={{ backgroundColor: currentColors.primary }}>
+        <SafeAreaView edges={['top']} />
+      </View>
+      <SafeAreaView style={[styles.container, { backgroundColor: '#F2F5FC' }]} edges={[]}>
+        <StatusBar backgroundColor={currentColors.primary} barStyle="light-content" />
+        <Stack.Screen
+          options={{
+            headerShown: false,
+          }}
+        />
       <Modal visible={visible} onRequestClose={closeModal} transparent={true} animationType="fade">
         <View style={styles.modalContainer}>
           <View style={styles.modalCard}>
@@ -109,7 +113,8 @@ export const Home = () => {
           paddingBottom: 100,
         }}
       />
-    </SafeAreaView>
+      </SafeAreaView>
+    </>
   );
 };
 
