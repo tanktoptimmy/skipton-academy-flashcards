@@ -41,6 +41,12 @@
         "backgroundColor": "#ffffff"
       },
       "package": "com.tanktoptimmy.skiptonacademyflashcards"
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "95c0740a-ba74-4401-b9a1-9674258dc726"
+      }
     }
   }
 }

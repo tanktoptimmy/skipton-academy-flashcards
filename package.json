@@ -9,7 +9,10 @@
     "prebuild": "expo prebuild",
     "lint": "eslint \"**/*.{js,jsx,ts,tsx}\" && prettier -c \"**/*.{js,jsx,ts,tsx,json}\"",
     "format": "eslint \"**/*.{js,jsx,ts,tsx}\" --fix && prettier \"**/*.{js,jsx,ts,tsx,json}\" --write",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "build:android:apk": "eas build --platform android --profile preview --local",
+    "build:android:aab": "eas build --platform android --profile preview-aab --local",
+    "build:android:production": "eas build --platform android --profile production --local"
   },
   "dependencies": {
     "@expo-google-fonts/red-hat-display": "^0.4.1",
