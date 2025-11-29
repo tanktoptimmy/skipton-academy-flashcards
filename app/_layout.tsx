@@ -41,7 +41,7 @@ const Layout = () => {
           <Stack />
         </View>
       </SafeAreaProvider>
-      <StatusBar style="dark" />
+      <StatusBar style="light" />
     </GestureHandlerRootView>
   );
 };
