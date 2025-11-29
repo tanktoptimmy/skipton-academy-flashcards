@@ -49,8 +49,9 @@ const Swipable = ({ classObj: { questions } }: SwipableProps) => {
   });
 
   const removeTopCard = useCallback(() => {
-    setQuestions((prevState) => prevState.slice(1));
+    // Reset swipe position before removing card to prevent next card from flashing
     swipe.setValue({ x: 0, y: 0 });
+    setQuestions((prevState) => prevState.slice(1));
   }, [swipe]);
 
   useEffect(() => {

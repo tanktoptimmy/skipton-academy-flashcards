@@ -11,12 +11,14 @@ function FlashCard({
   showAnswer,
   handleReveal,
   subjectColor = '#005EB8',
+  shouldLoadImage = true,
 }: {
   question: Question;
   randomImageId: number;
   showAnswer: boolean;
   handleReveal: () => void;
   subjectColor?: string;
+  shouldLoadImage?: boolean;
 }) {
   return (
     <View style={styles.card}>
@@ -28,12 +30,14 @@ function FlashCard({
           <View style={styles.answerContainer}>
             <Text style={styles.answerText}>{question.A}</Text>
           </View>
-        ) : (
+        ) : shouldLoadImage ? (
           <Image
             source={{ uri: `https://picsum.photos/id/${randomImageId}/400/300` }}
             style={styles.image}
             resizeMode="cover"
           />
+        ) : (
+          <View style={[styles.image, styles.placeholderImage]} />
         )}
       </View>
       <View style={styles.buttonContainer}>
@@ -100,6 +104,9 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
     borderRadius: 12,
+  },
+  placeholderImage: {
+    backgroundColor: '#F3F4F6',
   },
   buttonContainer: {
     paddingTop: 16,
