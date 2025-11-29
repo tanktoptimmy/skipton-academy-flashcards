@@ -44,7 +44,7 @@ const Moveable = ({ questions, subjectColor = '#906D88' }: MoveableProps) => {
     // Second card (depth 1) stays full size, cards behind it scale down
     const scale = depth === 1 ? 1 : depth === 2 ? 0.95 : 0.8;
     const translateY = depth === 1 ? 0 : (depth - 1) * 10;
-    const opacity = depth === 1 ? 0.8 : depth === 2 ? 0.65 : 0.5;
+    const opacity = depth === 1 ? 1 : depth === 2 ? 0.65 : 0.5;
 
     return {
       zIndex: 50 - depth, // Lower zIndex than top card (100)
@@ -148,10 +148,7 @@ const styles = StyleSheet.create({
     position: 'absolute', 
     width: SCREEN_WIDTH * 0.9,
     height: Dimensions.get('screen').height * 0.6, 
-    borderRadius: 16,
-    borderWidth: 1.5,
-    borderColor: '#E5E7EB',
-    backgroundColor: 'white', 
+    overflow: 'hidden',
   },
   resetButton: {
     borderRadius: 10,
